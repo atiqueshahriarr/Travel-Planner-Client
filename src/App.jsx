@@ -1,9 +1,14 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/homepage/Footer";
+import Navbar from "./components/homepage/Navbar";
 
 function App() {
   return (
     <>
-      <h1>Travel Planner</h1>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   );
 }
