@@ -105,7 +105,7 @@ const Navbar = () => {
 
           <div className="navbar-end ">
             <div className="tooltip" data-tip="Login">
-              <Link className="text-xl flex items-center gap-2 " to="/login">
+              <Link className="text-xl flex items-center gap-2 " to="/logreg">
                 <IoMdLogIn className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></IoMdLogIn>
               </Link>
             </div>
