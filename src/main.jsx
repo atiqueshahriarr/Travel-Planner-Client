@@ -3,8 +3,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import AuthProvider from "./components/authProvider/AuthProvider.jsx";
+import PrivateRoute from "./components/authProvider/PrivateRoute.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import Home from "./components/homepage/Home.jsx";
+import AddTouristSpot from "./components/Layout/AddTouristSpot.jsx";
+import MyList from "./components/Layout/MyList.jsx";
 import AllTouristSpot from "./components/loginRegister/AllTouristSpot.jsx";
 import Login from "./components/loginRegister/Login.jsx";
 import LogReg from "./components/loginRegister/LogReg.jsx";
@@ -38,6 +41,22 @@ const router = createBrowserRouter([
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot></AllTouristSpot>,
+      },
+      {
+        path: "/addTouristSpot",
+        element: (
+          <PrivateRoute>
+            <AddTouristSpot></AddTouristSpot>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myList",
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { IoMdLogIn } from "react-icons/io";
+import { RiLogoutCircleLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../authProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user, signOutUser} = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser();
+    toast.success("Signout Successfully");
+  };
+
   const navItems = (
     <>
       <li>
@@ -28,30 +39,34 @@ const Navbar = () => {
           All Tourist Spot
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/addTouristSpot"
-          style={({isActive}) => {
-            return isActive
-              ? {background: "#189b9c", color: "white", fontWeight: "700"}
-              : {};
-          }}
-        >
-          Add Tourist Spot
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/myList"
-          style={({isActive}) => {
-            return isActive
-              ? {background: "#189b9c", color: "white", fontWeight: "700"}
-              : {};
-          }}
-        >
-          My List
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/addTouristSpot"
+              style={({isActive}) => {
+                return isActive
+                  ? {background: "#189b9c", color: "white", fontWeight: "700"}
+                  : {};
+              }}
+            >
+              Add Tourist Spot
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/myList"
+              style={({isActive}) => {
+                return isActive
+                  ? {background: "#189b9c", color: "white", fontWeight: "700"}
+                  : {};
+              }}
+            >
+              My List
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -104,11 +119,44 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-end ">
-            <div className="tooltip" data-tip="Login">
-              <Link className="text-xl flex items-center gap-2 " to="/logreg">
-                <IoMdLogIn className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></IoMdLogIn>
-              </Link>
-            </div>
+            {user ? (
+              <div>
+                {user.photoURL ? (
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={user.photoURL}
+                      className="rounded-[100%] w-12"
+                      alt="Photo"
+                      title={user.displayName}
+                    />
+                    <Link
+                      className="tooltip cursor-pointer"
+                      onClick={handleSignOut}
+                      data-tip="Sign Out"
+                    >
+                      <RiLogoutCircleLine className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></RiLogoutCircleLine>
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <img
+                      src="https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
+                      className="rounded-[100%] w-12"
+                      alt=""
+                    />
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="tooltip" data-tip="Login">
+                <Link
+                  className="text-xl flex items-center gap-2 "
+                  to="/logreg/login"
+                >
+                  <IoMdLogIn className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></IoMdLogIn>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

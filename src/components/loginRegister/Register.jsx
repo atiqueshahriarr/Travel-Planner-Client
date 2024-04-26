@@ -1,9 +1,57 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../authProvider/AuthProvider";
 
 const Register = () => {
+  const {createUser, updateCreateUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.username.value;
+    const email = e.target.email.value;
+    const photoUrl = e.target.photoUrl.value;
+    const password = e.target.password.value;
+    console.log(name, email, photoUrl, password);
+    if (password.length < 6) {
+      toast.error("Password should be at least 6 characters");
+      return;
+    }
+
+    const passCheck = /^(?=.*[a-z])(?=.*[A-Z])/;
+    if (!passCheck.test(password)) {
+      toast.error("Password should be at least one upper and lower case");
+      return;
+    }
+
+    createUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        updateCreateUser(name, photoUrl)
+          .then(() => {
+            toast.success("Added Username & PhotoUrl");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+        e.target.reset();
+        toast.success("Successfully Registered");
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.warn("Email already exist");
+      });
+  };
   return (
     <div>
-      <form>
+      <form onSubmit={handleRegister}>
         <label htmlFor="text" className="block mt-6">
           Name
         </label>
@@ -11,7 +59,8 @@ const Register = () => {
           className="block px-5 py-2  border-b-2 w-full mt-2 "
           name="username"
           type="text"
-          placeholder="Type username"
+          placeholder="Type Name"
+          required
         />
 
         <label htmlFor="email" className="block mt-6">
@@ -43,10 +92,16 @@ const Register = () => {
           <input
             className="block px-5 py-2 border-b-2 w-full mt-2"
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Type password"
             required
           />
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+            className="hover:cursor-pointer absolute right-3 top-5 text-gray-500"
+          >
+            {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+          </span>
         </div>
 
         <div className="flex mt-4 justify-center">
@@ -57,7 +112,7 @@ const Register = () => {
           />
         </div>
       </form>
-
+      <ToastContainer></ToastContainer>
       <div className="flex flex-col items-center justify-center  mt-6">
         <p className="mt-2">
           Are have an account?{" "}
