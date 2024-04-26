@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import AuthProvider from "./components/authProvider/AuthProvider.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 import Home from "./components/homepage/Home.jsx";
 import Login from "./components/loginRegister/Login.jsx";
 import Register from "./components/loginRegister/Register.jsx";
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
