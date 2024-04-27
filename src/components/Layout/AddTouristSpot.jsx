@@ -1,9 +1,56 @@
 import { useContext } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../authProvider/AuthProvider";
 
 const AddTouristSpot = () => {
   const {user} = useContext(AuthContext);
   const {displayName, email} = user;
+
+  const handleAddTouristSpot = (e) => {
+    e.preventDefault();
+    const imageUrl = e.target.imageUrl.value;
+    const touristsSpotName = e.target.touristsSpotName.value;
+    const countryName = e.target.countryName.value;
+    const location = e.target.location.value;
+    const shortDescription = e.target.shortDescription.value;
+    const averageCost = e.target.averageCost.value;
+    const seasonality = e.target.seasonality.value;
+    const travelTime = e.target.travelTime.value;
+    const totalVisitorsPerYear = e.target.totalVisitorsPerYear.value;
+    const userEmail = e.target.userEmail.value;
+    const userName = e.target.userName.value;
+    const spotInfo = {
+      imageUrl,
+      touristsSpotName,
+      countryName,
+      location,
+      shortDescription,
+      averageCost,
+      seasonality,
+      travelTime,
+      totalVisitorsPerYear,
+      userEmail,
+      userName,
+    };
+    console.log(spotInfo);
+
+    fetch("http://localhost:5000/touristSpots", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(spotInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          console.log(data.insertedId);
+          // e.target.reset();
+          toast.success("Data added successfully");
+        }
+      });
+  };
   return (
     <div className="min-h-screen bg-gradient-to-l from-[#0a517e] via-[#6ab8fa] to-[#189b9c]">
       <div className="flex items-center justify-center min-h-screen py-6">
@@ -11,7 +58,7 @@ const AddTouristSpot = () => {
           <h3 className="text-center text-3xl font-bold mb-6">
             Tourist Spot Information
           </h3>
-          <form>
+          <form onSubmit={handleAddTouristSpot}>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <input
@@ -65,9 +112,9 @@ const AddTouristSpot = () => {
 
               <div>
                 <input
-                  className="block px-5 py-2 border-2 w-full mt-2"
+                  className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="averageCost"
-                  type="text"
+                  type="number"
                   placeholder="Enter average cost"
                   required
                 />
@@ -85,19 +132,19 @@ const AddTouristSpot = () => {
 
               <div>
                 <input
-                  className="block px-5 py-2 border-2 w-full mt-2"
+                  className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="travelTime"
-                  type="text"
-                  placeholder="Enter travel time (day)"
+                  type="number"
+                  placeholder="Enter travel time (days)"
                   required
                 />
               </div>
 
               <div>
                 <input
-                  className="block px-5 py-2 border-2 w-full mt-2"
+                  className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="totalVisitorsPerYear"
-                  type="text"
+                  type="number"
                   placeholder="Enter total visitors per year"
                   required
                 />
@@ -134,6 +181,7 @@ const AddTouristSpot = () => {
               />
             </div>
           </form>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </div>
