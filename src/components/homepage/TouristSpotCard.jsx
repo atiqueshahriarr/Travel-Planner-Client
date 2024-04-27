@@ -11,8 +11,10 @@ const TouristSpotCard = ({touristSpot}) => {
     countryName,
     location,
     averageCost,
+    seasonality,
     totalVisitorsPerYear,
     travelTime,
+    userName,
   } = touristSpot;
 
   const VisitorsPerYear = parseInt(totalVisitorsPerYear);
@@ -23,20 +25,24 @@ const TouristSpotCard = ({touristSpot}) => {
 
   return (
     <div className="p-4 border rounded-2xl">
-      <div className="bg-gray-100 rounded-xl flex justify-center">
+      <div
+        className="bg-gray-100 rounded-xl flex justify-center tooltip"
+        data-tip={userName}
+      >
         <img
           src={imageUrl}
           alt=""
-          className="h-[250px] w-full shadow-md rounded-xl p-4"
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="500"
-          data-aos-easing="ease-in-out"
+          className="h-[250px] w-full shadow-md rounded-xl p-4  hover:border-4"
         />
       </div>
 
-      <h3 className="my-3 text-xl font-medium">{touristsSpotName}</h3>
+      <h3 className="my-3 text-xl font-medium">
+        {touristsSpotName}{" "}
+        <span className="text-sm text-black">
+          {" "}
+          (Prefarable for - {seasonality})
+        </span>
+      </h3>
       <h4 className="border-b border-dashed pb-4 font-medium">
         {countryName},
         <span className="ml-1 font-normal text-sm ">{location}</span>
@@ -50,15 +56,15 @@ const TouristSpotCard = ({touristSpot}) => {
         ref={ref}
         className="text-center text-2xl font-semibold text-[#0a517e]"
       >
-        {inView && <CountUp start={0} end={VisitorsPerYear} duration={2.5} />}+
+        {inView && <CountUp start={0} end={VisitorsPerYear} duration={4} />}+
         <span className="text-sm text-black"> Visitors per year</span>
       </div>
       <div className="flex justify-center mt-4">
         <Link
-          to={`/touristSpot/${_id}`}
+          to={`/touristDetails/${_id}`}
           className="bg-[#6ab8fa] hover:bg-[#189b9c] w-2/4 py-2 rounded-xl font-bold text-white text-center"
         >
-          Details
+          View Details
         </Link>
       </div>
     </div>

@@ -4,6 +4,7 @@ import TouristSpotCard from "./TouristSpotCard";
 
 const Home = () => {
   const [touristSpots, setTouristSpots] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:5000/touristSpots")
       .then((res) => res.json())
