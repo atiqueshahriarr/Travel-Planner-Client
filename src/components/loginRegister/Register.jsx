@@ -43,6 +43,18 @@ const Register = () => {
         setTimeout(() => {
           navigate("/");
         }, 1500);
+        const user = {name, email, photoUrl};
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         console.log(error.message);

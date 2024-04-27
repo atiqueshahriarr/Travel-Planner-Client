@@ -138,12 +138,19 @@ const Navbar = () => {
                     </Link>
                   </div>
                 ) : (
-                  <div>
+                  <div className="flex items-center gap-4">
                     <img
                       src="https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
                       className="rounded-[100%] w-12"
                       alt=""
                     />
+                    <Link
+                      className="tooltip cursor-pointer"
+                      onClick={handleSignOut}
+                      data-tip="Sign Out"
+                    >
+                      <RiLogoutCircleLine className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></RiLogoutCircleLine>
+                    </Link>
                   </div>
                 )}
               </div>

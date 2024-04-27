@@ -42,6 +42,23 @@ const Login = () => {
         setTimeout(() => {
           navigate("/");
         }, 1000);
+
+        const userName = result.user.displayName;
+        const userEmail = result.user.email;
+        const userPhoto = result.user.photoURL;
+
+        const user = {userName, userEmail, userPhoto};
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         console.log("Login with google  failed", error.message);
@@ -58,6 +75,23 @@ const Login = () => {
         setTimeout(() => {
           navigate("/");
         }, 1000);
+
+        const userName = result.user.displayName;
+        const userEmail = result.user.email;
+        const userPhoto = result.user.photoURL;
+
+        const user = {userName, userEmail, userPhoto};
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         toast.error("Error occured, try with another email.");
