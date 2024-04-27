@@ -1,11 +1,25 @@
 import { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import TouristSpotCard from "../homepage/TouristSpotCard";
 
 const AllTouristSpot = () => {
   const loaderData = useLoaderData();
   const [touristSpots, setTouristSpots] = useState(loaderData);
-  const handleCostSort = () => {};
+  const handleCostSort = (e) => {
+    const selectChoice = e.target.value;
+    if (selectChoice == "ascending") {
+      fetch("http://localhost:5000/touristSpots/ascSort")
+        .then((res) => res.json())
+        .then((data) => setTouristSpots(data));
+    } else if (selectChoice == "descending") {
+      fetch("http://localhost:5000/touristSpots/desSort")
+        .then((res) => res.json())
+        .then((data) => setTouristSpots(data));
+    } else {
+      setTouristSpots(loaderData);
+    }
+  };
+
   return (
     <div>
       <div className="w-11/12 lg:w-3/4 mx-auto mt-16 space-y-8">
@@ -21,22 +35,16 @@ const AllTouristSpot = () => {
           </p>
         </div>
         <div className="flex justify-end">
-          <div className="dropdown dropdown-open">
-            <div tabIndex={0} role="button" className="btn m-1">
-              Sorted By
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link onClick={handleCostSort}>Average Cost</Link>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
-          </div>
+          <select
+            className="select select-bordered w-full max-w-xs"
+            onChange={handleCostSort}
+          >
+            <option disabled selected>
+              Sorted By?
+            </option>
+            <option value="ascending">Average Cost - Ascending Order</option>
+            <option value="descending">Average Cost - Descending Order</option>
+          </select>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {touristSpots.map((touristSpot) => (
