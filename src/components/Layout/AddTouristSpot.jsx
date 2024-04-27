@@ -13,7 +13,7 @@ const AddTouristSpot = () => {
     const countryName = e.target.countryName.value;
     const location = e.target.location.value;
     const shortDescription = e.target.shortDescription.value;
-    const averageCost = e.target.averageCost.value;
+    const averageCost = parseInt(e.target.averageCost.value);
     const seasonality = e.target.seasonality.value;
     const travelTime = e.target.travelTime.value;
     const totalVisitorsPerYear = e.target.totalVisitorsPerYear.value;
@@ -55,12 +55,12 @@ const AddTouristSpot = () => {
     <div className="min-h-screen bg-gradient-to-l from-[#0a517e] via-[#6ab8fa] to-[#189b9c]">
       <div className="flex items-center justify-center min-h-screen py-6">
         <div className="bg-white w-4/5 lg:w-2/4 rounded-lg mx-auto p-10 h-5/6 ">
-          <h3 className="text-center text-3xl font-bold mb-6">
+          <h3 className="text-center text-2xl md:text-3xl font-bold mb-6">
             Tourist Spot Information
           </h3>
           <form onSubmit={handleAddTouristSpot}>
             <div className="grid grid-cols-2 gap-4">
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="imageUrl"
@@ -70,7 +70,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="touristsSpotName"
@@ -80,7 +80,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="countryName"
@@ -90,7 +90,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="location"
@@ -110,7 +110,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="averageCost"
@@ -120,7 +120,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="seasonality"
@@ -130,7 +130,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="travelTime"
@@ -140,7 +140,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="totalVisitorsPerYear"
@@ -150,7 +150,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="userEmail"
@@ -161,7 +161,7 @@ const AddTouristSpot = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="userName"

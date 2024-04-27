@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import TouristSpotCard from "./TouristSpotCard";
 
@@ -11,10 +12,15 @@ const Home = () => {
       .then((data) => setTouristSpots(data));
   }, []);
 
+  let sixTouristSpot = touristSpots;
+  if (sixTouristSpot.length > 6) {
+    sixTouristSpot = touristSpots.slice(0, 6);
+  }
+
   return (
     <div>
       <Banner></Banner>
-      <div className="w-11/12 lg:w-3/4 mx-auto mt-16 space-y-8">
+      <div className="w-11/12 lg:w-3/4 mx-auto mt-16 space-y-8 mb-16">
         <div className="text-center space-y-4 flex flex-col items-center">
           <h3 className="text-3xl font-bold">
             Explore the Wonders of Southeast Asia
@@ -27,12 +33,26 @@ const Home = () => {
           </p>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {touristSpots.map((touristSpot) => (
+          {sixTouristSpot.map((touristSpot) => (
             <TouristSpotCard
-              key={touristSpots._id}
+              key={sixTouristSpot._id}
               touristSpot={touristSpot}
             ></TouristSpotCard>
           ))}
+        </div>
+        <div className="flex justify-center my-4">
+          {touristSpots.length > 6 ? (
+            <div>
+              <Link
+                to="/allTouristSpot"
+                className="bg-[#6ab8fa] hover:bg-[#189b9c] px-8 py-3 rounded-xl font-bold text-white text-center"
+              >
+                See More
+              </Link>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>

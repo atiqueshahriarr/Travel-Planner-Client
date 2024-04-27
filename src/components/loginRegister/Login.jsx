@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../authProvider/AuthProvider";
 
@@ -10,6 +10,7 @@ const Login = () => {
   const {signInUser, signInGoogle, signInGithub} = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(true);
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const Login = () => {
         e.target.reset();
         toast.success("Logged in successfully");
         setTimeout(() => {
-          navigate("/");
+          navigate(location?.state ? location.state : "/");
         }, 1000);
       })
       .catch((error) => {
@@ -40,7 +41,7 @@ const Login = () => {
         console.log("Login with google", result.user);
         toast.success("Logged in successfully with google");
         setTimeout(() => {
-          navigate("/");
+          navigate(location?.state ? location.state : "/");
         }, 1000);
 
         const userName = result.user.displayName;
@@ -73,7 +74,7 @@ const Login = () => {
         toast.success("Logged in successfully with github");
 
         setTimeout(() => {
-          navigate("/");
+          navigate(location?.state ? location.state : "/");
         }, 1000);
 
         const userName = result.user.displayName;

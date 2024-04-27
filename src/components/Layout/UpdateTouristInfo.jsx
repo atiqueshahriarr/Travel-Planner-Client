@@ -60,7 +60,7 @@ const UpdateTouristInfo = () => {
         if (data.modifiedCount > 0) {
           toast.success("Updated tourist information");
           setTimeout(() => {
-            navigate("/");
+            navigate("/myList");
           }, 1000);
         }
       });

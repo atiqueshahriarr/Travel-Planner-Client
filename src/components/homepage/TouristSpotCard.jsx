@@ -1,9 +1,24 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../authProvider/AuthProvider";
 
 const TouristSpotCard = ({touristSpot}) => {
+  const {loading} = useContext(AuthContext);
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <span className="loading loading-ring loading-lg"></span>
+        <span className="loading loading-ring loading-lg"></span>
+        <span className="loading loading-ring loading-lg"></span>
+        <span className="loading loading-ring loading-lg"></span>
+        <span className="loading loading-ring loading-lg"></span>
+      </div>
+    );
+  }
+
   const {
     _id,
     imageUrl,
@@ -19,7 +34,7 @@ const TouristSpotCard = ({touristSpot}) => {
 
   const VisitorsPerYear = parseInt(totalVisitorsPerYear);
   const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger animation only once
+    triggerOnce: false, // Trigger animation only once
     threshold: 0.5, // When 50% of the component is in view
   });
 
@@ -56,7 +71,7 @@ const TouristSpotCard = ({touristSpot}) => {
         ref={ref}
         className="text-center text-2xl font-semibold text-[#0a517e]"
       >
-        {inView && <CountUp start={0} end={VisitorsPerYear} duration={4} />}+
+        {inView && <CountUp start={0} end={VisitorsPerYear} duration={2} />}+
         <span className="text-sm text-black"> Visitors per year</span>
       </div>
       <div className="flex justify-center mt-4">

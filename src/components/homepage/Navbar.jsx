@@ -8,6 +8,8 @@ import { AuthContext } from "../authProvider/AuthProvider";
 const Navbar = () => {
   const {user, signOutUser} = useContext(AuthContext);
 
+  console.log(user);
+
   const handleSignOut = () => {
     signOutUser();
     toast.success("Signout Successfully");
@@ -36,7 +38,7 @@ const Navbar = () => {
               : {};
           }}
         >
-          All Tourist Spot
+          All Tourists Spot
         </NavLink>
       </li>
       {user && (

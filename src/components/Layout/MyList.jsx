@@ -58,18 +58,17 @@ const MyList = () => {
   };
 
   return (
-    <div className="w-11/12 lg:w-3/4  mx-auto">
+    <div className="w-11/12 lg:w-3/4  mx-auto min-h-[450px] pb-10">
       <div className="text-center space-y-4 flex flex-col items-center mt-10 mb-6">
         <h3 className="text-3xl font-bold">My Tourist Spot List</h3>
       </div>
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
-            <tr>
-              <th>Tourist Spot Name</th>
+            <tr className="bg-[#bbe8f2]">
+              <th>Tourist Spot</th>
               <th>Country Name</th>
-              <th>Visitors Per Year</th>
-              <th>Average Cost</th>
+              <th className="hidden md:block">Average Cost</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>
@@ -77,22 +76,24 @@ const MyList = () => {
           <tbody>
             {myTouristSpots.map((myTouristSpot) => (
               <tr key={myTouristSpot._id}>
-                <th>{myTouristSpot.touristsSpotName}</th>
-                <th>{myTouristSpot.countryName}</th>
-                <th>{myTouristSpot.totalVisitorsPerYear}</th>
-                <th>$ {myTouristSpot.averageCost}</th>
-                <th>
+                <td>{myTouristSpot.touristsSpotName}</td>
+                <td>{myTouristSpot.countryName}</td>
+
+                <td className="hidden md:block">
+                  $ {myTouristSpot.averageCost}
+                </td>
+                <td>
                   <FaEdit
                     className="text-xl hover:text-[#6ab8fa] hover:text-2xl"
                     onClick={() => handleUpdateSpot(myTouristSpot._id)}
                   ></FaEdit>
-                </th>
-                <th>
+                </td>
+                <td>
                   <MdDeleteForever
                     className="text-xl hover:text-red-600 hover:text-2xl"
                     onClick={() => handleDeleteSpot(myTouristSpot._id)}
                   ></MdDeleteForever>
-                </th>
+                </td>
               </tr>
             ))}
           </tbody>
