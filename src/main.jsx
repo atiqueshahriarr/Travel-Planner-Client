@@ -9,6 +9,7 @@ import Home from "./components/homepage/Home.jsx";
 import TouristCardDetails from "./components/homepage/TouristCardDetails.jsx";
 import AddTouristSpot from "./components/Layout/AddTouristSpot.jsx";
 import MyList from "./components/Layout/MyList.jsx";
+import UpdateTouristInfo from "./components/Layout/UpdateTouristInfo.jsx";
 import AllTouristSpot from "./components/loginRegister/AllTouristSpot.jsx";
 import Login from "./components/loginRegister/Login.jsx";
 import LogReg from "./components/loginRegister/LogReg.jsx";
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/touristSpot/${params.id}`),
+          fetch(`http://localhost:5000/touristSpots/${params.id}`),
       },
 
       {
@@ -71,6 +72,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:5000/touristSpots"),
+      },
+      {
+        path: "/updateTouristInfo/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateTouristInfo></UpdateTouristInfo>
+          </PrivateRoute>
+        ),
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/touristSpots/${params.id}`),
       },
     ],
   },
