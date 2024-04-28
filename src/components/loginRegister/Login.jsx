@@ -49,7 +49,7 @@ const Login = () => {
         const userPhoto = result.user.photoURL;
 
         const user = {userName, userEmail, userPhoto};
-        fetch("http://localhost:5000/users", {
+        fetch("https://travel-planner-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -82,7 +82,7 @@ const Login = () => {
         const userPhoto = result.user.photoURL;
 
         const user = {userName, userEmail, userPhoto};
-        fetch("http://localhost:5000/users", {
+        fetch("https://travel-planner-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

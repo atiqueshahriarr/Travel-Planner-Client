@@ -8,11 +8,9 @@ const UpdateTouristInfo = () => {
     _id,
     imageUrl,
     touristsSpotName,
-    countryName,
     location,
     shortDescription,
     averageCost,
-    seasonality,
     travelTime,
     totalVisitorsPerYear,
     userEmail,
@@ -47,7 +45,7 @@ const UpdateTouristInfo = () => {
     };
     console.log(updateInfo);
 
-    fetch(`http://localhost:5000/touristSpots/${_id}`, {
+    fetch(`https://travel-planner-server-site.vercel.app/touristSpots/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -70,12 +68,12 @@ const UpdateTouristInfo = () => {
     <div className="min-h-screen bg-gradient-to-l from-[#0a517e] via-[#6ab8fa] to-[#189b9c]">
       <div className="flex items-center justify-center min-h-screen py-6">
         <div className="bg-white w-4/5 lg:w-2/4 rounded-lg mx-auto p-10 h-5/6 ">
-          <h3 className="text-center text-3xl font-bold mb-6">
+          <h3 className="text-center text-2xl md:text-3xl font-bold mb-6">
             Update Tourist Spot Information
           </h3>
           <form onSubmit={handleUpdateInfo}>
             <div className="grid grid-cols-2 gap-4">
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="imageUrl"
@@ -86,7 +84,7 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="touristsSpotName"
@@ -97,18 +95,24 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
-                <input
+              <div className="col-span-2 lg:col-span-1">
+                <select
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="countryName"
-                  type="text"
-                  placeholder="Enter country name"
-                  required
-                  defaultValue={countryName}
-                />
+                >
+                  <option disabled selected>
+                    Select Country
+                  </option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Bangladesh">Vietnam</option>
+                  <option value="Thailand">Cambodia</option>
+                </select>
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="location"
@@ -130,7 +134,7 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="averageCost"
@@ -141,18 +145,21 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
-                <input
+              <div className="col-span-2 lg:col-span-1">
+                <select
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="seasonality"
-                  type="text"
-                  placeholder="Enter seasonality (winter/summer)"
-                  required
-                  defaultValue={seasonality}
-                />
+                >
+                  <option disabled selected>
+                    Select Season
+                  </option>
+                  <option value="Winter">Winter</option>
+                  <option value="Spring">Spring</option>
+                  <option value="Summer">Summer</option>
+                </select>
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="travelTime"
@@ -163,7 +170,7 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   name="totalVisitorsPerYear"
@@ -174,7 +181,7 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="userEmail"
@@ -185,7 +192,7 @@ const UpdateTouristInfo = () => {
                 />
               </div>
 
-              <div>
+              <div className="col-span-2 lg:col-span-1">
                 <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="userName"

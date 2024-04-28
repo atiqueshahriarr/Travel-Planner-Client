@@ -66,7 +66,10 @@ const TouristSpotCard = ({touristSpot}) => {
         </h4>
 
         <div className="pt-2 flex justify-between font-medium">
-          <p>$ {averageCost} Per Person</p>
+          <p>
+            ${averageCost}
+            <span className="text-xs font-normal"> /Person</span>
+          </p>
           <p>{travelTime} Days</p>
         </div>
         <div

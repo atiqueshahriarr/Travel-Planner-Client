@@ -5,7 +5,7 @@ const TouristSpotSection = () => {
   const [touristSpots, setTouristSpots] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/touristSpots")
+    fetch("https://travel-planner-server-site.vercel.app/touristSpots")
       .then((res) => res.json())
       .then((data) => setTouristSpots(data));
   }, []);

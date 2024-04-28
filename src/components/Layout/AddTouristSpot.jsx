@@ -34,7 +34,7 @@ const AddTouristSpot = () => {
     };
     console.log(spotInfo);
 
-    fetch("http://localhost:5000/touristSpots", {
+    fetch("https://travel-planner-server-site.vercel.app/touristSpots", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -90,6 +90,10 @@ const AddTouristSpot = () => {
                   </option>
                   <option value="Bangladesh">Bangladesh</option>
                   <option value="Thailand">Thailand</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Bangladesh">Vietnam</option>
+                  <option value="Thailand">Cambodia</option>
                 </select>
               </div>
 
@@ -124,13 +128,17 @@ const AddTouristSpot = () => {
               </div>
 
               <div className="col-span-2 lg:col-span-1">
-                <input
+                <select
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="seasonality"
-                  type="text"
-                  placeholder="Enter seasonality (winter/summer)"
-                  required
-                />
+                >
+                  <option disabled selected>
+                    Select Season
+                  </option>
+                  <option value="Winter">Winter</option>
+                  <option value="Spring">Spring</option>
+                  <option value="Summer">Summer</option>
+                </select>
               </div>
 
               <div className="col-span-2 lg:col-span-1">

@@ -58,7 +58,10 @@ const TouristCardDetails = () => {
               <tr className="h-7">
                 <td>Average Cost</td>
                 <td>:</td>
-                <td className="pl-2 font-bold">${averageCost} per person</td>
+                <td className="pl-2 font-bold">
+                  ${averageCost}
+                  <span className="text-sm font-semibold"> /Person</span>
+                </td>
               </tr>
               <tr className="h-7">
                 <td>Seasonality</td>

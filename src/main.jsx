@@ -44,7 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch("http://localhost:5000/touristSpots"),
+        loader: () =>
+          fetch(
+            "https://travel-planner-server-site.vercel.app/touristSpots"
+          ),
       },
       {
         path: "/touristDetails/:id",
@@ -54,7 +57,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/touristSpots/${params.id}`),
+          fetch(
+            `https://travel-planner-server-site.vercel.app/touristSpots/${params.id}`
+          ),
       },
 
       {
@@ -72,7 +77,10 @@ const router = createBrowserRouter([
             <MyList></MyList>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/touristSpots"),
+        loader: () =>
+          fetch(
+            "https://travel-planner-server-site.vercel.app/touristSpots"
+          ),
       },
       {
         path: "/updateTouristInfo/:id",
@@ -82,12 +90,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/touristSpots/${params.id}`),
+          fetch(
+            `https://travel-planner-server-site.vercel.app/touristSpots/${params.id}`
+          ),
       },
       {
         path: "/touristSpots/:countryName",
         element: <CountryTouristSpot></CountryTouristSpot>,
-        loader: () => fetch(`http://localhost:5000/touristSpots`),
+        loader: () =>
+          fetch(
+            `https://travel-planner-server-site.vercel.app/touristSpots`
+          ),
       },
     ],
   },

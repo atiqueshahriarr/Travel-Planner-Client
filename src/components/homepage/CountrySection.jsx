@@ -5,7 +5,7 @@ const CountrySection = () => {
   const [countries, setcountries] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/countries")
+    fetch("https://travel-planner-server-site.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => setcountries(data));
   }, []);

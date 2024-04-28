@@ -44,7 +44,7 @@ const Register = () => {
           navigate("/");
         }, 1500);
         const user = {name, email, photoUrl};
-        fetch("http://localhost:5000/users", {
+        fetch("https://travel-planner-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
