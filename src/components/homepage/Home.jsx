@@ -1,3 +1,4 @@
+import AboutTravelPlanner from "./AboutTravelPlanner";
 import Banner from "./Banner";
 import CountrySection from "./CountrySection";
 import OurService from "./OurService";
@@ -7,11 +8,12 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <TouristSpotSection></TouristSpotSection>
+      <AboutTravelPlanner></AboutTravelPlanner>
       <div className="bg-gray-100 py-1">
+        <TouristSpotSection></TouristSpotSection>
         <CountrySection></CountrySection>
-        <OurService></OurService>
       </div>
+      <OurService></OurService>
     </div>
   );
 };

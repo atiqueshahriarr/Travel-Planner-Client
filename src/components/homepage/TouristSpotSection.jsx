@@ -15,7 +15,7 @@ const TouristSpotSection = () => {
     sixTouristSpot = touristSpots.slice(0, 6);
   }
   return (
-    <div className="w-11/12 lg:w-3/4 mx-auto mt-16 space-y-8 mb-16">
+    <div className="w-11/12 lg:w-3/4 mx-auto mt-10 space-y-8 mb-10">
       <div className="text-center space-y-4 flex flex-col items-center">
         <h3 className="text-3xl font-bold">
           Explore the Wonders of Southeast Asia
