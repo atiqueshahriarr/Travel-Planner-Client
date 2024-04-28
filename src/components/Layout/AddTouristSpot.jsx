@@ -46,7 +46,7 @@ const AddTouristSpot = () => {
         console.log(data);
         if (data.insertedId) {
           console.log(data.insertedId);
-          // e.target.reset();
+          e.target.reset();
           toast.success("Data added successfully");
         }
       });
@@ -81,13 +81,6 @@ const AddTouristSpot = () => {
               </div>
 
               <div className="col-span-2 lg:col-span-1">
-                {/* <input
-                  className="block px-5 py-2 border-2 w-full mt-2"
-                  name="countryName"
-                  type="text"
-                  placeholder="Enter country name"
-                  required
-                /> */}
                 <select
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="countryName"
