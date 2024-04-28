@@ -7,7 +7,9 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <TouristSpotSection></TouristSpotSection>
-      <CountrySection></CountrySection>
+      <div className="bg-gray-100 py-1">
+        <CountrySection></CountrySection>
+      </div>
     </div>
   );
 };

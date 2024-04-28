@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import AuthProvider from "./components/authProvider/AuthProvider.jsx";
 import PrivateRoute from "./components/authProvider/PrivateRoute.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
+import CountryTouristSpot from "./components/homepage/CountryTouristSpot.jsx";
 import Home from "./components/homepage/Home.jsx";
 import TouristCardDetails from "./components/homepage/TouristCardDetails.jsx";
 import AddTouristSpot from "./components/Layout/AddTouristSpot.jsx";
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
         ),
         loader: ({params}) =>
           fetch(`http://localhost:5000/touristSpots/${params.id}`),
+      },
+      {
+        path: "/touristSpots/:countryName",
+        element: <CountryTouristSpot></CountryTouristSpot>,
+        loader: () => fetch(`http://localhost:5000/touristSpots`),
       },
     ],
   },
