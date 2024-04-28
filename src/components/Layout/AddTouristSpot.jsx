@@ -81,13 +81,23 @@ const AddTouristSpot = () => {
               </div>
 
               <div className="col-span-2 lg:col-span-1">
-                <input
+                {/* <input
                   className="block px-5 py-2 border-2 w-full mt-2"
                   name="countryName"
                   type="text"
                   placeholder="Enter country name"
                   required
-                />
+                /> */}
+                <select
+                  className="block px-5 py-2 border-2 w-full mt-2"
+                  name="countryName"
+                >
+                  <option disabled selected>
+                    Select Country
+                  </option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Thailand">Thailand</option>
+                </select>
               </div>
 
               <div className="col-span-2 lg:col-span-1">
