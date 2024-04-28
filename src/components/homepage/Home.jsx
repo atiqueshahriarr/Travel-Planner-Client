@@ -1,6 +1,7 @@
 import AboutTravelPlanner from "./AboutTravelPlanner";
 import Banner from "./Banner";
 import CountrySection from "./CountrySection";
+import GetInTouch from "./GetInTouch";
 import OurService from "./OurService";
 import TouristSpotSection from "./TouristSpotSection";
 
@@ -14,6 +15,7 @@ const Home = () => {
         <CountrySection></CountrySection>
       </div>
       <OurService></OurService>
+      <GetInTouch></GetInTouch>
     </div>
   );
 };

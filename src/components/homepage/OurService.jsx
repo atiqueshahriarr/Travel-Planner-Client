@@ -22,7 +22,7 @@ const OurService = () => {
             your next adventure has never been easier.
           </p>
         </div>
-        <div className="flex flex-col items-center bg-gradient-to-b from-[#bbe8f298] shadow-md rounded-md p-8 space-y-2 relative top-12">
+        <div className="flex flex-col items-center bg-gradient-to-b from-[#bbe8f298] shadow-md rounded-md p-8 space-y-2 md:relative md:top-12">
           <img
             className="w-32"
             src="https://cdn-icons-png.flaticon.com/512/8910/8910356.png"
