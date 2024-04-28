@@ -16,7 +16,7 @@ const CountrySection = () => {
           Discover South Asia: A Cultural Mosaic
         </h3>
         <p className="font-medium text-[#4e4e4e] max-w-screen-lg">
-          Embark on a journey through South Asia, where vibrant cultures,
+          Explore on a journey through South Asia, where vibrant cultures,
           breathtaking landscapes, and rich history come together to create an
           unforgettable experience. Discover the beauty and diversity of this
           enchanting region.
