@@ -43,7 +43,8 @@ const Register = () => {
         toast.success("Successfully Registered");
         setTimeout(() => {
           navigate("/");
-        }, 1500);
+          navigate(0);
+        }, 1000);
         const user = {name, email, photoUrl};
         fetch("https://travel-planner-server-site.vercel.app/users", {
           method: "POST",
@@ -114,7 +115,7 @@ const Register = () => {
           />
           <span
             onClick={() => setShowPassword(!showPassword)}
-            className="hover:cursor-pointer absolute right-3 top-5"
+            className="hover:cursor-pointer absolute right-5 top-3"
           >
             {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
           </span>
