@@ -6,9 +6,13 @@ import Navbar from "./components/homepage/Navbar";
 function App() {
   return (
     <>
-      <Navbar></Navbar>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div className="fixed w-full z-10 bg-[#282A36]">
+        <Navbar></Navbar>
+      </div>
+      <div className="relative top-[88px]">
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     </>
   );
 }

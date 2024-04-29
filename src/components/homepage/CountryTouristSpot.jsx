@@ -20,27 +20,29 @@ const CountryTouristSpot = () => {
   }, []);
 
   return (
-    <div className="w-11/12 lg:w-3/4 mx-auto mt-16 space-y-2">
-      <div className="text-center space-y-4 flex flex-col items-center mb-8">
-        <h3 className="text-3xl font-bold">
-          {countryName} - All Tourist Spots
-        </h3>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-16">
-        {specificSpots.length > 0 ? (
-          <div>
-            {specificSpots.map((country) => (
-              <CountryWiseSpotCard
-                key={country._id}
-                country={country}
-              ></CountryWiseSpotCard>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center space-y-4 flex flex-col items-center pb-72 text-xl text-red-500 font-bold">
-            Currenty no tourist spot is availabe in {countryName}.
-          </div>
-        )}
+    <div className="shadow-lg mb-1">
+      <div className="w-10/12 lg:w-3/4 mx-auto space-y-2 py-10 min-h-[500px]">
+        <div className="text-center space-y-4 flex flex-col items-center mb-8">
+          <h3 className="text-3xl font-bold text-[#3672B7]">
+            {countryName} - All Tourist Spots
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {specificSpots.length > 0 ? (
+            <div>
+              {specificSpots.map((country) => (
+                <CountryWiseSpotCard
+                  key={country._id}
+                  country={country}
+                ></CountryWiseSpotCard>
+              ))}
+            </div>
+          ) : (
+            <div className="md:col-span-2 lg:col-span-3 text-center space-y-4 flex flex-col items-center pb-72 text-xl text-[#EE3F36] font-bold">
+              Currenty no tourist spot is availabe in {countryName}.
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

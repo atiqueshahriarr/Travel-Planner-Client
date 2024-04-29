@@ -1,14 +1,21 @@
+import { Rotate } from "react-awesome-reveal";
+
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center p-10 bg-gray-200 text-black">
+      <footer className="footer footer-center p-10 bg-[#282A36] text-white">
         <aside>
-          <p>
-            <img
-              src="https://i.ibb.co/TRN1wFX/Screenshot-2024-04-26-210302-removebg-preview.png"
-              className="w-64"
-              alt=""
-            />
+          <p className="flex items-center mb-4">
+            <Rotate>
+              <div>
+                <img className="w-20" src="iconLogo.png" alt="" />
+              </div>
+              <div>
+                <p className="font-bold text-4xl ml-2 text-[#EE3F36] text-left">
+                  travel <span className="block text-[#3672B7]">planner</span>
+                </p>
+              </div>
+            </Rotate>
           </p>
 
           <p className="font-medium ">
@@ -18,7 +25,7 @@ const Footer = () => {
         </aside>
 
         <nav>
-          <div className="grid grid-flow-col gap-4">
+          <div className="grid grid-flow-col gap-4 text-[#3672B7]">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

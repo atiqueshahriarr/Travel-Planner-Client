@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Bounce } from "react-awesome-reveal";
 import { IoMdLogIn } from "react-icons/io";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
@@ -39,7 +40,7 @@ const Navbar = () => {
           to="/"
           style={({isActive}) => {
             return isActive
-              ? {background: "#189b9c", color: "white", fontWeight: "700"}
+              ? {background: "#3672B7", color: "white", fontWeight: "700"}
               : {};
           }}
         >
@@ -51,7 +52,7 @@ const Navbar = () => {
           to="/allTouristSpot"
           style={({isActive}) => {
             return isActive
-              ? {background: "#189b9c", color: "white", fontWeight: "700"}
+              ? {background: "#3672B7", color: "white", fontWeight: "700"}
               : {};
           }}
         >
@@ -65,7 +66,7 @@ const Navbar = () => {
               to="/addTouristSpot"
               style={({isActive}) => {
                 return isActive
-                  ? {background: "#189b9c", color: "white", fontWeight: "700"}
+                  ? {background: "#3672B7", color: "white", fontWeight: "700"}
                   : {};
               }}
             >
@@ -77,7 +78,7 @@ const Navbar = () => {
               to="/myList"
               style={({isActive}) => {
                 return isActive
-                  ? {background: "#189b9c", color: "white", fontWeight: "700"}
+                  ? {background: "#3672B7", color: "white", fontWeight: "700"}
                   : {};
               }}
             >
@@ -90,14 +91,14 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="bg-gray-200">
+      <div className="shadow-xl">
         <div className="navbar w-11/12 lg:w-3/4 mx-auto p-4">
           <div className="navbar-start flex items-center">
             <div className="dropdown">
               <div
                 tabIndex={0}
                 role="button"
-                className="pr-2 text-[#0a517e] lg:hidden pt-1"
+                className="pr-2 text-white lg:hidden pt-1"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,18 +122,24 @@ const Navbar = () => {
                 {navItems}
               </ul>
             </div>
-            <div className="btn p-0 bg-transparent border-none shadow-none hover:bg-transparent">
-              <Link to="/">
-                <img
-                  className="w-28"
-                  src="https://i.ibb.co/TRN1wFX/Screenshot-2024-04-26-210302-removebg-preview.png"
-                  alt=""
-                />
-              </Link>
+            <div className="">
+              <Bounce>
+                <Link to="/" className="flex items-center">
+                  <div>
+                    <img className="w-12" src="iconLogo.png" alt="" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-xl ml-2 text-[#EE3F36]">
+                      travel{" "}
+                      <span className="block text-[#3672B7]">planner</span>
+                    </p>
+                  </div>
+                </Link>
+              </Bounce>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu gap-4 menu-horizontal px-1 text-base">
+            <ul className="menu gap-4 menu-horizontal px-1 text-base text-white">
               {navItems}
             </ul>
           </div>
@@ -153,7 +160,7 @@ const Navbar = () => {
                       onClick={handleSignOut}
                       data-tip="Sign Out"
                     >
-                      <RiLogoutCircleLine className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></RiLogoutCircleLine>
+                      <RiLogoutCircleLine className="text-3xl text-[#F6BC1C] hover:text-[#EE3F36]"></RiLogoutCircleLine>
                     </Link>
                   </div>
                 ) : (
@@ -168,7 +175,7 @@ const Navbar = () => {
                       onClick={handleSignOut}
                       data-tip="Sign Out"
                     >
-                      <RiLogoutCircleLine className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></RiLogoutCircleLine>
+                      <RiLogoutCircleLine className="text-3xl text-[#F6BC1C] hover:text-[#EE3F36]"></RiLogoutCircleLine>
                     </Link>
                   </div>
                 )}
@@ -179,7 +186,7 @@ const Navbar = () => {
                   className="text-xl flex items-center gap-2 "
                   to="/logreg/login"
                 >
-                  <IoMdLogIn className="text-3xl text-[#0a517e] hover:text-[#189b9c]"></IoMdLogIn>
+                  <IoMdLogIn className="text-3xl text-[#F6BC1C] hover:text-[#009144]"></IoMdLogIn>
                 </Link>
               </div>
             )}

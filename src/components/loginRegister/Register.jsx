@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -62,47 +63,50 @@ const Register = () => {
       });
   };
   return (
-    <div>
+    <div className="text-white">
+      <Helmet>
+        <title>Travel Planner | Register</title>
+      </Helmet>
       <form onSubmit={handleRegister}>
         <label htmlFor="text" className="block mt-6">
           Name
         </label>
         <input
-          className="block px-5 py-2  border-b-2 w-full mt-2 "
+          className="block px-5 py-2  border-b bg-transparent w-full "
           name="username"
           type="text"
           placeholder="Type Name"
           required
         />
 
-        <label htmlFor="email" className="block mt-6">
+        <label htmlFor="email" className="block mt-4">
           Email
         </label>
         <input
-          className="block px-5 py-2  border-b-2 w-full mt-2 "
+          className="block px-5 py-2  border-b bg-transparent w-full "
           name="email"
           type="email"
           placeholder="Type email address"
           required
         />
 
-        <label htmlFor="photoUrl" className="block mt-6">
+        <label htmlFor="photoUrl" className="block mt-4">
           PhotoUrl
         </label>
         <input
-          className="block px-5 py-2  border-b-2 w-full mt-2 "
+          className="block px-5 py-2  border-b bg-transparent w-full "
           name="photoUrl"
           type="text"
           placeholder="Type photo url link"
           required
         />
 
-        <label htmlFor="password" className="block mt-6">
+        <label htmlFor="password" className="block mt-4">
           Password
         </label>
         <div className="flex relative">
           <input
-            className="block px-5 py-2 border-b-2 w-full mt-2"
+            className="block px-5 py-2  border-b bg-transparent w-full "
             name="password"
             type={showPassword ? "text" : "password"}
             placeholder="Type password"
@@ -110,7 +114,7 @@ const Register = () => {
           />
           <span
             onClick={() => setShowPassword(!showPassword)}
-            className="hover:cursor-pointer absolute right-3 top-5 text-gray-500"
+            className="hover:cursor-pointer absolute right-3 top-5"
           >
             {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
           </span>
@@ -120,7 +124,7 @@ const Register = () => {
           <input
             type="submit"
             value="REGISTER"
-            className="bg-[#6ab8fa] hover:bg-[#189b9c] w-2/4 py-2 rounded-xl font-bold text-white"
+            className="bg-[#6ab8fa] hover:bg-[#4fadff] w-2/4 py-2 rounded-xl font-bold text-white"
           />
         </div>
       </form>
@@ -128,7 +132,7 @@ const Register = () => {
       <div className="flex flex-col items-center justify-center  mt-6">
         <p className="mt-2">
           Are have an account?{" "}
-          <span className="text-blue-500 hover:font-semibold">
+          <span className="font-medium hover:font-bold">
             <Link to="/logreg/login">Please Login.</Link>
           </span>
         </p>

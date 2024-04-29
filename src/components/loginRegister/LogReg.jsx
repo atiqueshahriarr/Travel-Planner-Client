@@ -5,9 +5,9 @@ import Register from "./Register";
 const LogReg = () => {
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-l from-[#0a517e] via-[#6ab8fa] to-[#189b9c]">
+      <div className="min-h-screen mb-1 shadow-lg">
         <div className="flex items-center justify-center min-h-screen py-6">
-          <div className="bg-white w-4/5 lg:w-1/3 rounded-lg mx-auto p-10 h-5/6 ">
+          <div className=" bg-gradient-to-b from-[#1762b8]  to-[#487ead] w-4/5 lg:w-1/3 rounded-lg mx-auto p-10 h-5/6 ">
             <div
               role="tablist"
               className="tabs tabs-bordered flex font-semibold"
@@ -29,7 +29,7 @@ const LogReg = () => {
                   type="radio"
                   name="my_tabs_1"
                   role="tab"
-                  className="tab text-2xl my-2 "
+                  className="tab text-xl md:text-2xl my-2 text-white"
                   aria-label="Login"
                   checked
                 />
@@ -55,7 +55,7 @@ const LogReg = () => {
                   type="radio"
                   name="my_tabs_1"
                   role="tab"
-                  className="tab text-2xl my-2"
+                  className="tab text-xl md:text-2xl my-2 text-black"
                   aria-label="Register"
                   checked
                 />
