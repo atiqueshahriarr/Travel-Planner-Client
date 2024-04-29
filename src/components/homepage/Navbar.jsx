@@ -10,7 +10,10 @@ const Navbar = () => {
   const {user, signOutUser} = useContext(AuthContext);
   console.log(user);
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme || "light";
+  });
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -20,11 +23,8 @@ const Navbar = () => {
 
   const handleThemeChange = (e) => {
     console.log(e.target.checked);
-    if (e.target.checked) {
-      setTheme("dracula");
-    } else {
-      setTheme("light");
-    }
+    const newTheme = e.target.checked ? "dracula" : "light";
+    setTheme(newTheme);
   };
   console.log(theme);
 
@@ -195,6 +195,7 @@ const Navbar = () => {
                 <input
                   onChange={handleThemeChange}
                   type="checkbox"
+                  checked={theme === "dracula"}
                   value="dracula"
                   className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
                 />
