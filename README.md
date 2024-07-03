@@ -42,8 +42,7 @@
 </ul>
 
 <br>
-<h2>B9 A10 Type-01 Requirements</h2>
-<br>
+
 <h2>React Package:</h2>
 <div>
     <h4>React-simple-typewriter</h4>
