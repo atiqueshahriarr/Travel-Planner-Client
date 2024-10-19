@@ -1,12 +1,13 @@
 <h1>
     Travel Planner
 </h1>
-<hr><br>
+<hr>
 <h3> Live Link:
     <a href="https://travel-planner-70a42.web.app/">
         Travel Planner
     </a>
-</h3><br>
+</h3>
+<h4>Tools & Technologies: React, Node, MongoDB, Firebase, Animate.css, Swiper Slider, React Simple Typewriter, React Awesome Reveal </h4>
 
 <h2>Website Features:</h2>
 
@@ -43,8 +44,19 @@
 
 <br>
 
-<h2>React Package:</h2>
-<div>
-    <h4>React-simple-typewriter</h4>
-    <h4>React Awesome reveal</h4>
+<br>
+
+<h2>Project Demo:</h2>
+
+<div style="text-align:center">
+    <img src="https://github.com/atiqueshahriarr/Travel-Planner-Client/blob/main/Travel-Planner-1.png?raw=true"
+        alt="project-screenshot" width="100%" height="100%">
+        <img src="https://github.com/atiqueshahriarr/Travel-Planner-Client/blob/main/Travel-Planner-2.png?raw=true"
+        alt="project-screenshot" width="100%" height="100%">
+        <img src="https://github.com/atiqueshahriarr/Travel-Planner-Client/blob/main/Travel-Planner-3.png?raw=true"
+        alt="project-screenshot" width="100%" height="100%">
+        <img src="https://github.com/atiqueshahriarr/Travel-Planner-Client/blob/main/Travel-Planner-4.png?raw=true"
+        alt="project-screenshot" width="100%" height="100%">
 </div>
+
+
