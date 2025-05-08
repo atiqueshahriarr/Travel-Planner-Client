@@ -52,9 +52,9 @@ const router = createBrowserRouter([
       {
         path: "/touristDetails/:id",
         element: (
-          <PrivateRoute>
+          
             <TouristCardDetails></TouristCardDetails>
-          </PrivateRoute>
+          
         ),
         loader: ({params}) =>
           fetch(

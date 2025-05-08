@@ -10,13 +10,13 @@ const AllTouristSpot = () => {
     const selectChoice = e.target.value;
     if (selectChoice == "ascending") {
       fetch(
-        "https://travel-planner-server-site.vercel.app/touristSpots/ascSort"
+        "http://localhost:5000/touristSpots/ascSort"
       )
         .then((res) => res.json())
         .then((data) => setTouristSpots(data));
     } else if (selectChoice == "descending") {
       fetch(
-        "https://travel-planner-server-site.vercel.app/touristSpots/desSort"
+        "http://localhost:5000/touristSpots/desSort"
       )
         .then((res) => res.json())
         .then((data) => setTouristSpots(data));
